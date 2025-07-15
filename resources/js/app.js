@@ -1,8 +1,8 @@
 import './bootstrap';
 import { createApp } from 'vue/dist/vue.esm-bundler';
-import ExampleComponent from './components/ExampleComponent.vue';
+import ButtonComponent from './components/MainButtonsComponent.vue';
 
 const app = createApp({});
-app.component('example', ExampleComponent);
+app.component('buttons', ButtonComponent);
 
 app.mount('#app');
