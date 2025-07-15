@@ -14,6 +14,7 @@
     {{ $slot ?? '' }}
 </main>
 <x-footer></x-footer>
+<user-model></user-model>
 </body>
 </html>
 

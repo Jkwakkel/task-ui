@@ -1,6 +1,9 @@
 <script setup lang="ts">
+
+import { setToken } from '../tokenStore.js';
+
 const handleLogout = () => {
-    console.log('logout');
+    setToken(null);
 };
 </script>
 

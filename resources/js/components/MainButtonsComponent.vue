@@ -3,14 +3,12 @@ import RegisterButton from './RegisterButtonComponent.vue';
 import LoginButton from './LoginButtonComponent.vue';
 import LogoutButton from './LogoutButtonComponent.vue';
 
-import { computed } from 'vue';
-
-const hasToken = computed(() => !!localStorage.getItem('token'));
+import {token} from '../tokenStore.js';
 </script>
 
 <template>
-    <register-button v-if="!hasToken"></register-button>
-    <login-button v-if="!hasToken"></login-button>
-    <logout-button v-if="hasToken"></logout-button>
+    <register-button v-if="!token"></register-button>
+    <login-button v-if="!token"></login-button>
+    <logout-button v-if="token"></logout-button>
 </template>
 
