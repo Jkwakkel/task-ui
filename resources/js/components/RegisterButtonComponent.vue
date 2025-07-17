@@ -1,13 +1,7 @@
-<script setup lang="ts">
-const handleRegister = () => {
-    console.log('register');
-};
+<script setup>
+
 </script>
 
 <template>
-    <button @click="handleRegister" class="btn-secondary">Register</button>
+    <button @click="$emit('open-modal')" class="btn-secondary">Register</button>
 </template>
-
-<style scoped>
-
-</style>

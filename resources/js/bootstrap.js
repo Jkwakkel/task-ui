@@ -29,9 +29,10 @@ window.axios.interceptors.response.use(
                 } else {
                     error.customMessage = 'Login has failed, please try again.';
                 }
-                window.location.href = '/login';
             } else if (error.response.status === 403) {
                 error.customMessage = 'You do not have permission to perform this action.';
+            } else if (error.response.status === 422) {
+                error.customMessage = error.response.data.message;
             } else if (error.response.status === 500) {
                 error.customMessage = 'An error has occurred. Please try again.';
             }
