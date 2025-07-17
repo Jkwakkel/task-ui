@@ -7,6 +7,8 @@ const props = defineProps<{ openModal: boolean, title: string }>();
 const emit = defineEmits<{ (event: 'update:openModal', value: boolean): void; }>();
 
 function closeModal() {
+    errorMessage.value = null;
+    errorVisisble.value = false;
     emit('update:openModal', false);
 }
 
@@ -120,8 +122,7 @@ function register(name: string, email: string, password: string) {
                                     </div>
                                     <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
                                         <button type="submit"
-                                                class="btn-main"
-                                                @click="processForm();">{{ title }}
+                                                class="btn-main">{{ title }}
                                         </button>
                                         <button type="button"
                                                 class="btn-secondary"
