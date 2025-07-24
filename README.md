@@ -17,37 +17,4 @@ This is a standalone frontend application built with **Laravel 12**, **Vue 3**, 
 
 ## 🚀 Setup
 
-```bash
-# Clone and enter the project directory
-git clone <repo-url>
-cd task-ui
-
-# 1. Install PHP Dependencies via Composer
-composer install
-
-# 2. Install Node.js Dependencies
-npm install
-
-# 3. Environment Configuration
-cp .env.example .env
-
-# 4. Generate Application Key 
-php artisan key:generate
-
-# 5. Set File Permissions for Storage (if needed, typically for Linux)
-# This allows Laravel to write to the storage and cache directories.
-chmod -R 775 storage bootstrap/cache
-chown -R www-data:www-data storage bootstrap/cache
-
-# 6. Run Database Migrations
-php artisan migrate
-
-# 7. Compile Frontend Assets
-npm run dev
-# (or `npm run build` for production)
-
-# 8. Start Laravel Development Server
-php artisan serve
-
-# 9. Start Vite Dev Server 
-npm run dev
+TODO
