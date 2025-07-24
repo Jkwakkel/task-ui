@@ -31,9 +31,11 @@ window.axios.interceptors.response.use(
                 }
             } else if (error.response.status === 403) {
                 error.customMessage = 'You do not have permission to perform this action.';
+            } else if (error.response.status === 409) {
+                error.customMessage = 'Email address already in use.';
             } else if (error.response.status === 422) {
                 error.customMessage = error.response.data.message;
-            } else if (error.response.status === 500) {
+            } else {
                 error.customMessage = 'An error has occurred. Please try again.';
             }
         } else {
