@@ -10,7 +10,7 @@
 </head>
 <body id="app" class="flex flex-col justify-center items-center h-screen w-150 mx-auto">
 <x-header></x-header>
-<main class="w-full">
+<main class="w-full p-4">
     {{ $slot ?? '' }}
 </main>
 <x-footer></x-footer>

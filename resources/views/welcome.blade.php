@@ -1,3 +1,3 @@
 <x-app>
-    <h1>Main Body</h1>
+    <tasks></tasks>
 </x-app>
