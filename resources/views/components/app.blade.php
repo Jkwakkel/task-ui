@@ -8,9 +8,9 @@
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body id="app" class="flex flex-col justify-center items-center h-screen w-150 mx-auto">
+<body id="app" class="flex flex-col min-h-screen w-full max-w-7xl mx-auto">
 <x-header></x-header>
-<main class="w-full p-4">
+<main class="flex-grow w-full p-4">
     {{ $slot ?? '' }}
 </main>
 <x-footer></x-footer>
