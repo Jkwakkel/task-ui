@@ -31,10 +31,14 @@ function processForm() {
     const isUpdate = Boolean(props.task?.id);
     const url = isUpdate ? `/tasks/${props.task.id}` : '/tasks';
     const method = isUpdate ? 'put' : 'post';
+    const dueDate = new Date();
+    dueDate.setDate(dueDate.getDate() + 7);
 
     window.axios[method](url, {
         title: originalTitle.value,
         description: originalDescription.value,
+        status: 'open',
+        due_date: dueDate,
     }).then((updatedTask) => {
         emit('upserted', updatedTask);
     }).catch(error => {
@@ -64,7 +68,7 @@ function processForm() {
                             <div class="mb-6">
                                 <label for="title"
                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Title</label>
-                                <input type="title" id="title"
+                                <input type="text" id="title"
                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                        v-model="originalTitle"
                                        placeholder="" required/>

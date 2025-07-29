@@ -6,6 +6,7 @@ import {watch, ref} from "vue";
 
 const tasksData = ref(null);
 const currentTask = ref(null);
+const title = ref(null);
 
 
 const fetchTasks = () => {
@@ -50,6 +51,7 @@ const onUpsert = (task) => {
 
 const openTaskModal = ref(false)
 function openModal(task: any) {
+    title.value = task ? 'Edit Task' : 'Create New Task';
     currentTask.value = task;
     openTaskModal.value = true;
 }
@@ -60,7 +62,14 @@ function openModal(task: any) {
         Please register or login to view and create tasks.
     </div>
     <div v-else>
-        <task-modal v-model:openModal="openTaskModal" :task="currentTask" title="Update" @upserted="onUpsert"></task-modal>
+        <button
+            @click="openModal(null)"
+            class="btn-primary mb-4 px-4 py-2 rounded bg-blue-600 text-white hover:bg-blue-700"
+        >
+            Create New Task
+        </button>
+
+        <task-modal v-model:openModal="openTaskModal" :task="currentTask" :title="title" @upserted="onUpsert"></task-modal>
         <div v-for="task in tasksData" :key="task.id">
             <task :task="task" @deleted="onDeleted" @edited="openModal(task)"></task>
         </div>
