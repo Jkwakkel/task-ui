@@ -1,13 +1,19 @@
 <script setup lang="ts">
 import DeleteButton from './TaskDeleteButtonComponent.vue';
+import UpsertButton from './TaskUpsertButtonComponent.vue';
+import {ref} from "vue";
 
 const prop = defineProps(['task'])
 const task = prop.task;
 
-const emit = defineEmits(['deleted']);
+const emit = defineEmits(['deleted', 'edited']);
 
 const onDelete = (taskId) => {
     emit('deleted', taskId);
+};
+
+const onEdit = (taskId) => {
+    emit('edited', taskId);
 };
 
 </script>
@@ -25,6 +31,7 @@ const onDelete = (taskId) => {
 
         <div class="ml-4 flex-shrink-0">
             <!-- Placeholder for your delete button component -->
+            <upsert-button :taskId="task.id" @upsert="onEdit"/>
             <delete-button :taskId="task.id" @delete="onDelete"/>
         </div>
     </div>
